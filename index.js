@@ -2,8 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const convert = require('xml-js')
 const axios = require('axios')
+const dotenv = require('dotenv');
+require('dotenv').config()
+const PORT = process.env.PORT || 7070
 const app = express();
-
 
 /**
  * @description Obtener el valor del dolar oficial
@@ -155,12 +157,12 @@ function getDateTime() {
     }
 
 // Settings
-app.set('port', 8080);
+app.set('port', PORT);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Starting the server
 app.listen(app.get('port'), () => {
-    console.log('Server running on port ' + 8080)
+    console.log('Server running on port ' + PORT)
 });
