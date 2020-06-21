@@ -8,13 +8,9 @@ const PORT = process.env.PORT || 7070
 const app = express();
 
 
-/**
- * @description Obtener el valor del dolar oficial
- * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
- */
 app.get('/', async (req, res) => {
     try {
-        res.send("API para obtener las cotizaciones de los distintos tipos de dolar y riesgo pais.")
+        res.send("API para obtener las cotizaciones de los distintos tipos de dolar y riesgo pais. La documentacion la podes encontrar en https://github.com/Castrogiovanni20/api-dolar-argentina")
     } catch(e) {
         console.log(e)
         res.send(500);
