@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 require('dotenv').config()
 const PORT = process.env.PORT || 7070
 const app = express();
-
+const URL = 'https://www.dolarsi.com/api/dolarSiInfo.xml'
 
 app.get('/', async (req, res) => {
     try {
@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
  */
 app.get('/api/dolaroficial', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -35,7 +35,8 @@ app.get('/api/dolaroficial', async (req, res) => {
         res.send(valores)
     } catch(e) {
         console.log(e)
-        res.send(500);
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
@@ -46,7 +47,7 @@ app.get('/api/dolaroficial', async (req, res) => {
  */
 app.get('/api/dolarblue', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+        const dataDolar = await axios.get(URL)
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -57,7 +58,8 @@ app.get('/api/dolarblue', async (req, res) => {
 
         res.send(valores)
     } catch(e) {
-        
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
@@ -68,7 +70,7 @@ app.get('/api/dolarblue', async (req, res) => {
  */
 app.get('/api/contadoliqui', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+        const dataDolar = await axios.get(URL)
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -79,7 +81,8 @@ app.get('/api/contadoliqui', async (req, res) => {
 
         res.send(valores)
     } catch(e) {
-        
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
@@ -90,7 +93,7 @@ app.get('/api/contadoliqui', async (req, res) => {
  */
 app.get('/api/dolarpromedio', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+        const dataDolar = await axios.get(URL)
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -101,7 +104,8 @@ app.get('/api/dolarpromedio', async (req, res) => {
 
         res.send(valores)
     } catch(e) {
-        
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
@@ -112,7 +116,7 @@ app.get('/api/dolarpromedio', async (req, res) => {
  */
 app.get('/api/dolarbolsa', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+        const dataDolar = await axios.get(URL)
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -123,7 +127,8 @@ app.get('/api/dolarbolsa', async (req, res) => {
 
         res.send(valores)
     } catch(e) {
-        
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
@@ -134,7 +139,7 @@ app.get('/api/dolarbolsa', async (req, res) => {
  */
 app.get('/api/riesgopais', async (req, res) => {
     try {
-        const dataDolar = await axios.get('https://www.dolarsi.com/api/dolarSiInfo.xml')
+        const dataDolar = await axios.get(URL)
         const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
         const convertedJSON = JSON.parse(json);
         const valores = {
@@ -144,7 +149,31 @@ app.get('/api/riesgopais', async (req, res) => {
 
         res.send(valores)
     } catch(e) {
-        
+        res.sendStatus(500)
+        console.log(e)
+    }
+})
+
+
+/**
+ * @description Obtener las cotizaciones del BBVA
+ * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+ */
+app.get('/api/bbva', async (req, res) => {
+    try {
+        const dataDolar = await axios.get(URL)
+        const json = convert.xml2json(dataDolar.data, {compact: true, spaces: 4});
+        const convertedJSON = JSON.parse(json);
+
+        const valores = {
+            fecha : getDateTime(),
+            compra : parseFloat(convertedJSON.cotiza.Capital_Federal.casa336.compra._text.replace(',','.')).toFixed(2),
+            venta : parseFloat(convertedJSON.cotiza.Capital_Federal.casa336.venta._text.replace(',','.')).toFixed(2)
+        } 
+        res.send(valores)
+    } catch(e) {
+        res.sendStatus(500)
+        console.log(e)
     }
 })
 
