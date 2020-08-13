@@ -14,6 +14,7 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/dolarpromedio | Cotizacion dolar promedio |
 | GET | /api/dolarbolsa | Cotizacion dolar bolsa |
 | GET | /api/riesgopais | Valor riesgo pais |
+| GET | /api/bbva | Cotizacion del banco BBVA |
 
 
 ### Respuesta
