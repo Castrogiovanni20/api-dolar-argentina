@@ -1,5 +1,3 @@
-const dolarSi = require('../helpers/dolarSi')
-
 function getDateTime() {
     var now     = new Date(); 
     var year    = now.getFullYear();
@@ -18,24 +16,29 @@ function getDateTime() {
          return dateTime;
 }
 
+class riesgoController{
+    constructor(dolarSiService){
+        this.dolarSiService = dolarSiService
+    }
 
-/**
- * @description Obtener el valor del riesgo pais
- * @returns Un objeto con el valor del riesgo pais y la fecha y hora de la consulta
- */
-async function getRiesgoPais(req, res){
-    try {
-        const data = await dolarSi.getInfoDolar()
-        const valores = {
-            fecha : getDateTime(),
-            valor : parseFloat(data.cotiza.Riesgo_pais.casa141.compra._text.replace(',','.')).toFixed(3),
+    /**
+     * @description Obtener el valor del riesgo pais
+     * @returns Un objeto con el valor del riesgo pais y la fecha y hora de la consulta
+     */
+    getRiesgoPais = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                valor : parseFloat(data.cotiza.Riesgo_pais.casa141.compra._text.replace(',','.')).toFixed(3),
+            }
+
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
         }
-
-        res.send(valores)
-    } catch(e) {
-        res.sendStatus(500)
-        console.log(e)
     }
 }
 
-module.exports = { getRiesgoPais }
+module.exports = riesgoController
