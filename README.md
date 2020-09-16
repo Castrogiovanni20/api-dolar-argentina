@@ -15,7 +15,14 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/dolarbolsa | Cotizacion dolar bolsa |
 | GET | /api/riesgopais | Valor riesgo pais |
 | GET | /api/bbva | Cotizacion del banco BBVA |
-
+| GET | /api/piano | Cotizacion del banco Piano |
+| GET | /api/hipotecario | Cotizacion del banco Hipotecario |
+| GET | /api/galicia | Cotizacion del banco Galicia |
+| GET | /api/santander | Cotizacion del banco Santander|
+| GET | /api/ciudad | Cotizacion del banco Ciudad |
+| GET | /api/supervielle | Cotizacion del banco Supervielle |
+| GET | /api/patagonia | Cotizacion del banco Patagonia |
+| GET | /api/comafi | Cotizacion del banco Comafi |
 
 ### Respuesta
 
