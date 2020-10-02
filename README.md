@@ -14,15 +14,20 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/dolarpromedio | Cotizacion dolar promedio |
 | GET | /api/dolarbolsa | Cotizacion dolar bolsa |
 | GET | /api/riesgopais | Valor riesgo pais |
-| GET | /api/bbva | Cotizacion del banco BBVA |
-| GET | /api/piano | Cotizacion del banco Piano |
-| GET | /api/hipotecario | Cotizacion del banco Hipotecario |
-| GET | /api/galicia | Cotizacion del banco Galicia |
-| GET | /api/santander | Cotizacion del banco Santander|
-| GET | /api/ciudad | Cotizacion del banco Ciudad |
-| GET | /api/supervielle | Cotizacion del banco Supervielle |
-| GET | /api/patagonia | Cotizacion del banco Patagonia |
-| GET | /api/comafi | Cotizacion del banco Comafi |
+| GET | /api/bbva | Cotizacion del Banco BBVA |
+| GET | /api/piano | Cotizacion del Banco Piano |
+| GET | /api/hipotecario | Cotizacion del Banco Hipotecario |
+| GET | /api/galicia | Cotizacion del Banco Galicia |
+| GET | /api/santander | Cotizacion del Banco Santander |
+| GET | /api/ciudad | Cotizacion del Banco Ciudad |
+| GET | /api/supervielle | Cotizacion del Banco Supervielle |
+| GET | /api/patagonia | Cotizacion del Banco Patagonia |
+| GET | /api/comafi | Cotizacion del Banco Comafi |
+| GET | /api/nacion | Cotizacion del Banco Nación |
+| GET | /api/bind | Cotizacion del Banco Industrial |
+| GET | /api/bancor | Cotizacion del Banco de Córdoba |
+| GET | /api/chaco | Cotizacion del Nuevo Banco del Chaco |
+| GET | /api/pampa | Cotizacion del Banco de La Pampa |
 
 ### Respuesta
 
