@@ -163,7 +163,7 @@ class bancosController {
 
 
     /**
-     * @description Obtener las cotizaciones del Banco Patagoina
+     * @description Obtener las cotizaciones del Banco Patagonia
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
     getDolarPatagonia = async (req, res) => {
@@ -201,6 +201,100 @@ class bancosController {
         }
     }
 
+    /**
+     * @description Obtener las cotizaciones del Banco Nación
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getDolarNacion = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                compra : parseFloat(data.cotiza.Capital_Federal.casa6.compra._text.replace(',','.')).toFixed(2),
+                venta : parseFloat(data.cotiza.Capital_Federal.casa6.venta._text.replace(',','.')).toFixed(2)
+            }
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
+
+    /**
+     * @description Obtener las cotizaciones del Banco Industrial
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getDolarBIND = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                compra : parseFloat(data.cotiza.Capital_Federal.casa22.compra._text.replace(',','.')).toFixed(2),
+                venta : parseFloat(data.cotiza.Capital_Federal.casa22.venta._text.replace(',','.')).toFixed(2)
+            }  
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
+
+    /**
+     * @description Obtener las cotizaciones del Nuevo Banco del Chaco
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getDolarChaco = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                compra : parseFloat(data.cotiza.Capital_Federal.casa334.compra._text.replace(',','.')).toFixed(2),
+                venta : parseFloat(data.cotiza.Capital_Federal.casa334.venta._text.replace(',','.')).toFixed(2)
+            }  
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
+
+    /**
+     * @description Obtener las cotizaciones del Banco de La Pampa
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getDolarPampa = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                compra : parseFloat(data.cotiza.Capital_Federal.casa335.compra._text.replace(',','.')).toFixed(2),
+                venta : parseFloat(data.cotiza.Capital_Federal.casa335.venta._text.replace(',','.')).toFixed(2)
+            }  
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
+
+    /**
+     * @description Obtener las cotizaciones del Banco de Córdoba
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getDolarBancor = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha : getDateTime(),
+                compra : parseFloat(data.cotiza.Capital_Federal.casa341.compra._text.replace(',','.')).toFixed(2),
+                venta : parseFloat(data.cotiza.Capital_Federal.casa341.venta._text.replace(',','.')).toFixed(2)
+            }  
+            res.send(valores)
+        } catch(e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
 }
 
 module.exports = bancosController

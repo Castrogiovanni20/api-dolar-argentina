@@ -35,6 +35,11 @@ router.get('/api/ciudad', bancoInstance.getDolarCiudad)
 router.get('/api/supervielle', bancoInstance.getDolarSupervielle)
 router.get('/api/patagonia', bancoInstance.getDolarPatagonia)
 router.get('/api/comafi', bancoInstance.getDolarComafi)
+router.get('/api/nacion', bancoInstance.getDolarNacion)
+router.get('/api/bind', bancoInstance.getDolarBIND)
+router.get('/api/chaco', bancoInstance.getDolarChaco)
+router.get('/api/pampa', bancoInstance.getDolarPampa)
+router.get('/api/bancor', bancoInstance.getDolarBancor)
 
 /**
  * @description Ruta riesgo pais
