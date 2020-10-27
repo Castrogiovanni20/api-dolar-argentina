@@ -1,11 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const dotenv = require('dotenv');
-require('dotenv').config()
 const router = require('./routes/router')
 const PORT = process.env.PORT || 7070
 const app = express();
-
 
 app.get('/', async (req, res) => {
     try {
@@ -22,6 +19,14 @@ app.set('port', PORT);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', router)
+
+// CORS
+app.use('*',function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    next();
+});
 
 // Starting the server
 app.listen(app.get('port'), () => {
