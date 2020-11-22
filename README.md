@@ -29,6 +29,8 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/chaco | Cotizacion del Nuevo Banco del Chaco |
 | GET | /api/pampa | Cotizacion del Banco de La Pampa |
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/409e96f2e356a5a1c14e)
+
 ### Respuesta
 
 _Todos los endpoints devuelven la fecha y hora, el valor de compra y el valor de venta. Ejemplo:_
