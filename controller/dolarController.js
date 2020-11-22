@@ -13,8 +13,8 @@ class dolarController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: parseFloat(data.cotiza.Dolar.casa344.compra._text.replace(',', '.')).toFixed(2),
-                venta: parseFloat(data.cotiza.Dolar.casa344.venta._text.replace(',', '.')).toFixed(2)
+                compra: this.util.formatNumber(data.cotiza.Dolar.casa344.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Dolar.casa344.venta._text)
             }
             res.send(valores)
         } catch (e) {
@@ -33,8 +33,8 @@ class dolarController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: parseFloat(data.cotiza.Dolar.casa380.compra._text.replace(',', '.')).toFixed(2),
-                venta: parseFloat(data.cotiza.Dolar.casa380.venta._text.replace(',', '.')).toFixed(2)
+                compra: this.util.formatNumber(data.cotiza.Dolar.casa380.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Dolar.casa380.venta._text)
             }
 
             res.send(valores)
@@ -54,8 +54,8 @@ class dolarController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: parseFloat(data.cotiza.valores_principales.casa312.compra._text.replace(',', '.')).toFixed(2),
-                venta: parseFloat(data.cotiza.valores_principales.casa312.venta._text.replace(',', '.')).toFixed(2)
+                compra: this.util.formatNumber(data.cotiza.valores_principales.casa312.compra._text),
+                venta: this.util.formatNumber(data.cotiza.valores_principales.casa312.venta._text)
             }
 
             res.send(valores)
@@ -75,8 +75,8 @@ class dolarController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: parseFloat(data.cotiza.cotizador.casa302.compra._text.replace(',', '.')).toFixed(2),
-                venta: parseFloat(data.cotiza.cotizador.casa302.venta._text.replace(',', '.')).toFixed(2)
+                compra: this.util.formatNumber(data.cotiza.cotizador.casa302.compra._text),
+                venta: this.util.formatNumber(data.cotiza.cotizador.casa302.venta._text)
             }
 
             res.send(valores)
@@ -96,8 +96,8 @@ class dolarController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: parseFloat(data.cotiza.valores_principales.casa313.compra._text.replace(',', '.')).toFixed(2),
-                venta: parseFloat(data.cotiza.valores_principales.casa313.venta._text.replace(',', '.')).toFixed(2)
+                compra: this.util.formatNumber(data.cotiza.valores_principales.casa313.compra._text),
+                venta: this.util.formatNumber(data.cotiza.valores_principales.casa313.venta._text)
             }
 
             res.send(valores)

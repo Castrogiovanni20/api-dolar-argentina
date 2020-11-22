@@ -13,7 +13,7 @@ class riesgoController {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                valor: parseFloat(data.cotiza.Riesgo_pais.casa141.compra._text.replace(',', '.')).toFixed(3),
+                valor: this.util.formatNumber(data.cotiza.Riesgo_pais.casa141.compra._text, 3),
             }
 
             res.send(valores)

@@ -1,5 +1,8 @@
 class util {
 
+    /**
+     * Obtiene la fecha y hora actual formateada.
+     */
     getDateTime = function () {
         let now = new Date();
         let year = now.getFullYear();
@@ -17,6 +20,19 @@ class util {
         let dateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
         return dateTime;
     }
+
+    /**
+     * Formatea un texto numérico a formato moneda.
+     * @param {string} value Texto que contiene el valor numérico a convertir.
+     * @param {number} decimalPlaces Cantidad de caracteres decimales a conservar.
+     */
+    formatNumber = function(value, decimalPlaces) {
+        let decimals = decimalPlaces || 2;
+        let convertedValue = parseFloat(value.replace(',', '.'))
+        return !isNaN(convertedValue) ? convertedValue.toFixed(decimals) : '?'
+    }
+
+    format
 }
 
 module.exports = util
