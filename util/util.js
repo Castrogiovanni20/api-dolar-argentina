@@ -28,11 +28,9 @@ class util {
      */
     formatNumber = function(value, decimalPlaces) {
         let decimals = decimalPlaces || 2;
-        let convertedValue = parseFloat(value.replace(',', '.'))
+        let convertedValue = parseFloat(value.replace('.', '').replace(',', '.'))
         return !isNaN(convertedValue) ? convertedValue.toFixed(decimals) : '?'
     }
-
-    format
 }
 
 module.exports = util
