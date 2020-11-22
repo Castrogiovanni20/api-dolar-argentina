@@ -80,4 +80,13 @@ router.get('/api/real/chaco', realInstance.getRealChaco)
 router.get('/api/bcra/reservas', bcraInstance.getReservas)
 router.get('/api/bcra/circulante', bcraInstance.getCirculante)
 
+/**
+ * @description Rutas evolución mensual
+ */
+router.get('/api/evolucion/dolaroficial', dolarInstance.getEvolucionDolarOficial)
+router.get('/api/evolucion/dolarblue', dolarInstance.getEvolucionDolarBlue)
+router.get('/api/evolucion/realoficial', realInstance.getEvolucionReal)
+router.get('/api/evolucion/eurooficial', euroInstance.getEvolucionEuro)
+
+
 module.exports = router

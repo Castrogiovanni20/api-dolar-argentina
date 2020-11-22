@@ -60,6 +60,22 @@ class realController {
             res.sendStatus(500)
         }
     }
+
+    /**
+     * @description Obtiene la evolución anual del valor del real
+     * @returns Un objeto con el valor promedio por mes, el mes y el año.
+     */
+    getEvolucionReal = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.real.anio)
+
+            res.send(valores)
+        } catch (e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
 }
 
 module.exports = realController

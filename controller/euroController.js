@@ -117,6 +117,22 @@ class euroController {
             res.sendStatus(500)
         }
     }
+
+    /**
+     * @description Obtiene la evolución anual del valor del euro
+     * @returns Un objeto con el valor promedio por mes, el mes y el año.
+     */
+    getEvolucionEuro = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.euro.anio)
+
+            res.send(valores)
+        } catch (e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
 }
 
 module.exports = euroController

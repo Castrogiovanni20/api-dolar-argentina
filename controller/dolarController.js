@@ -106,6 +106,38 @@ class dolarController {
             console.log(e)
         }
     }
+
+    /**
+     * @description Obtiene la evolución anual del valor del dolar oficial
+     * @returns Un objeto con el valor promedio por mes, el mes y el año.
+     */
+    getEvolucionDolarOficial = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.oficial.anio)
+
+            res.send(valores)
+        } catch (e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
+
+    /**
+     * @description Obtiene la evolución anual del valor del dolar blue
+     * @returns Un objeto con el valor promedio por mes, el mes y el año.
+     */
+    getEvolucionDolarBlue = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.blue.anio)
+
+            res.send(valores)
+        } catch (e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
 }
 
 module.exports = dolarController
