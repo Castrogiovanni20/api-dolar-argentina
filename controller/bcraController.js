@@ -6,7 +6,7 @@ class bcraController {
 
     /**
      * @description Obtener el valor de las reservas del BCRA expresadas en dólares.
-     * @returns Un objeto con el valor de las reservas, observaciones, y la fecha y hora de la consulta
+     * @returns Un objeto con el valor de las reservas, la moneda y la fecha-hora de la consulta
      */
     getReservas = async (req, res) => {
         try {
@@ -30,7 +30,7 @@ class bcraController {
 
         /**
      * @description Obtener el valor del total circulante expresado en pesos argentinos.
-     * @returns Un objeto con el valor de las reservas, observaciones, y la fecha y hora de la consulta
+     * @returns Un objeto con el valor del circulante, la moneda y la fecha-hora de la consulta
      */
     getCirculante = async (req, res) => {
         try {
