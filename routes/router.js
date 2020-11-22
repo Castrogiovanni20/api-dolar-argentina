@@ -22,6 +22,9 @@ const euroInstance = new euroController(dolarSiServiceInstance, utilInstance)
 const realController = require('../controller/realController')
 const realInstance = new realController(dolarSiServiceInstance, utilInstance)
 
+const bcraController = require('../controller/bcraController')
+const bcraInstance = new bcraController(dolarSiServiceInstance, utilInstance)
+
 /**
  * @description Rutas dolar
  */
@@ -70,5 +73,11 @@ router.get('/api/euro/hipotecario', euroInstance.getEuroHipotecario)
 router.get('/api/real/nacion', realInstance.getRealNacion)
 router.get('/api/real/bbva', realInstance.getRealBBVA)
 router.get('/api/real/chaco', realInstance.getRealChaco)
+
+/**
+ * @description Rutas Reservas y Circulante
+ */
+router.get('/api/bcra/reservas', bcraInstance.getReservas)
+router.get('/api/bcra/circulante', bcraInstance.getCirculante)
 
 module.exports = router
