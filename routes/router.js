@@ -1,27 +1,30 @@
 const express = require('express');
 const router = express.Router();
 
-const dolarSiService = require ('../services/dolarSiService')
+const util = require('../util/util')
+const utilInstance = new util()
+
+const dolarSiService = require('../services/dolarSiService')
 const dolarSiServiceInstance = new dolarSiService()
 
-const dolarController  = require('../controller/dolarController')
-const dolarInstance = new dolarController(dolarSiServiceInstance)
+const dolarController = require('../controller/dolarController')
+const dolarInstance = new dolarController(dolarSiServiceInstance, utilInstance)
 
-const bancoController  = require('../controller/bancosController')
-const bancoInstance = new bancoController(dolarSiServiceInstance)
+const bancoController = require('../controller/bancosController')
+const bancoInstance = new bancoController(dolarSiServiceInstance, utilInstance)
 
 const riesgoController = require('../controller/riesgoController');
-const riesgoInstance = new riesgoController(dolarSiServiceInstance)
+const riesgoInstance = new riesgoController(dolarSiServiceInstance, utilInstance)
 
 
 /**
  * @description Rutas dolar
  */
-router.get('/api/dolaroficial',  dolarInstance.getDolarOficial)
-router.get('/api/dolarblue',     dolarInstance.getDolarBlue)
-router.get('/api/contadoliqui',  dolarInstance.getContadoConLiqui)
+router.get('/api/dolaroficial', dolarInstance.getDolarOficial)
+router.get('/api/dolarblue', dolarInstance.getDolarBlue)
+router.get('/api/contadoliqui', dolarInstance.getContadoConLiqui)
 router.get('/api/dolarpromedio', dolarInstance.getDolarPromedio)
-router.get('/api/dolarbolsa',    dolarInstance.getDolarBolsa)
+router.get('/api/dolarbolsa', dolarInstance.getDolarBolsa)
 
 /**
  * @description Rutas bancos
@@ -45,6 +48,5 @@ router.get('/api/bancor', bancoInstance.getDolarBancor)
  * @description Ruta riesgo pais
  */
 router.get('/api/riesgopais', riesgoInstance.getRiesgoPais)
-
 
 module.exports = router

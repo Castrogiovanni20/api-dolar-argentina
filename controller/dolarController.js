@@ -1,24 +1,7 @@
-function getDateTime() {
-    var now     = new Date(); 
-    var year    = now.getFullYear();
-    var month   = now.getMonth()+1; 
-    var day     = now.getDate();
-    var hour    = now.getHours();
-    var minute  = now.getMinutes();
-    var second  = now.getSeconds(); 
-    (month.toString().length == 1) ? month = '0'+month : '';
-    (day.toString().length == 1)   ? day = '0'+day : '';
-    (hour.toString().length == 1)  ? hour = '0'+hour : '';
-    (minute.toString().length == 1)? minute = '0'+minute : '';
-    (second.toString().length == 1)? second = '0'+second : '';
-    
-    var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
-         return dateTime;
-}
-
-class dolarController{
-    constructor(dolarSiService){
+class dolarController {
+    constructor(dolarSiService, util) {
         this.dolarSiService = dolarSiService
+        this.util = util
     }
 
     /**
@@ -29,12 +12,12 @@ class dolarController{
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
-                fecha : getDateTime(),
-                compra : parseFloat(data.cotiza.Dolar.casa344.compra._text.replace(',','.')).toFixed(2),
-                venta  : parseFloat(data.cotiza.Dolar.casa344.venta._text.replace(',','.')).toFixed(2)
+                fecha: this.util.getDateTime(),
+                compra: parseFloat(data.cotiza.Dolar.casa344.compra._text.replace(',', '.')).toFixed(2),
+                venta: parseFloat(data.cotiza.Dolar.casa344.venta._text.replace(',', '.')).toFixed(2)
             }
             res.send(valores)
-        } catch(e) {
+        } catch (e) {
             console.log(e)
             res.sendStatus(500)
         }
@@ -49,13 +32,13 @@ class dolarController{
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
-                fecha : getDateTime(),
-                compra    : parseFloat(data.cotiza.Dolar.casa380.compra._text.replace(',','.')).toFixed(2),
-                venta     : parseFloat(data.cotiza.Dolar.casa380.venta._text.replace(',','.')).toFixed(2)
+                fecha: this.util.getDateTime(),
+                compra: parseFloat(data.cotiza.Dolar.casa380.compra._text.replace(',', '.')).toFixed(2),
+                venta: parseFloat(data.cotiza.Dolar.casa380.venta._text.replace(',', '.')).toFixed(2)
             }
 
             res.send(valores)
-        } catch(e) {
+        } catch (e) {
             res.sendStatus(500)
             console.log(e)
         }
@@ -70,13 +53,13 @@ class dolarController{
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
-                fecha : getDateTime(),
-                compra    : parseFloat(data.cotiza.valores_principales.casa312.compra._text.replace(',','.')).toFixed(2),
-                venta     : parseFloat(data.cotiza.valores_principales.casa312.venta._text.replace(',','.')).toFixed(2)
+                fecha: this.util.getDateTime(),
+                compra: parseFloat(data.cotiza.valores_principales.casa312.compra._text.replace(',', '.')).toFixed(2),
+                venta: parseFloat(data.cotiza.valores_principales.casa312.venta._text.replace(',', '.')).toFixed(2)
             }
-            
+
             res.send(valores)
-        } catch(e) {
+        } catch (e) {
             res.sendStatus(500)
             console.log(e)
         }
@@ -91,13 +74,13 @@ class dolarController{
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
-                fecha : getDateTime(),
-                compra    : parseFloat(data.cotiza.cotizador.casa302.compra._text.replace(',','.')).toFixed(2),
-                venta     : parseFloat(data.cotiza.cotizador.casa302.venta._text.replace(',','.')).toFixed(2)
+                fecha: this.util.getDateTime(),
+                compra: parseFloat(data.cotiza.cotizador.casa302.compra._text.replace(',', '.')).toFixed(2),
+                venta: parseFloat(data.cotiza.cotizador.casa302.venta._text.replace(',', '.')).toFixed(2)
             }
 
             res.send(valores)
-        } catch(e) {
+        } catch (e) {
             res.sendStatus(500)
             console.log(e)
         }
@@ -112,16 +95,17 @@ class dolarController{
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
-                fecha : getDateTime(),
-                compra   : parseFloat(data.cotiza.valores_principales.casa313.compra._text.replace(',','.')).toFixed(2),
-                venta    : parseFloat(data.cotiza.valores_principales.casa313.venta._text.replace(',','.')).toFixed(2)
+                fecha: this.util.getDateTime(),
+                compra: parseFloat(data.cotiza.valores_principales.casa313.compra._text.replace(',', '.')).toFixed(2),
+                venta: parseFloat(data.cotiza.valores_principales.casa313.venta._text.replace(',', '.')).toFixed(2)
             }
 
             res.send(valores)
-        } catch(e) {
+        } catch (e) {
             res.sendStatus(500)
             console.log(e)
         }
     }
 }
+
 module.exports = dolarController
