@@ -16,6 +16,11 @@ const bancoInstance = new bancoController(dolarSiServiceInstance, utilInstance)
 const riesgoController = require('../controller/riesgoController');
 const riesgoInstance = new riesgoController(dolarSiServiceInstance, utilInstance)
 
+const euroController = require('../controller/euroController')
+const euroInstance = new euroController(dolarSiServiceInstance, utilInstance)
+
+const realController = require('../controller/realController')
+const realInstance = new realController(dolarSiServiceInstance, utilInstance)
 
 /**
  * @description Rutas dolar
@@ -48,5 +53,22 @@ router.get('/api/bancor', bancoInstance.getDolarBancor)
  * @description Ruta riesgo pais
  */
 router.get('/api/riesgopais', riesgoInstance.getRiesgoPais)
+
+/**
+ * @description Rutas euro
+ */
+router.get('/api/euro/nacion', euroInstance.getEuroNacion)
+router.get('/api/euro/galicia', euroInstance.getEuroGalicia)
+router.get('/api/euro/bbva', euroInstance.getEuroBBVA)
+router.get('/api/euro/pampa', euroInstance.getEuroPampa)
+router.get('/api/euro/chaco', euroInstance.getEuroChaco)
+router.get('/api/euro/hipotecario', euroInstance.getEuroHipotecario)
+
+/**
+ * @description Rutas real
+ */
+router.get('/api/real/nacion', realInstance.getRealNacion)
+router.get('/api/real/bbva', realInstance.getRealBBVA)
+router.get('/api/real/chaco', realInstance.getRealChaco)
 
 module.exports = router
