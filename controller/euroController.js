@@ -1,20 +1,20 @@
-class dolarController {
+class euroController {
     constructor(dolarSiService, util) {
         this.dolarSiService = dolarSiService
         this.util = util
     }
 
     /**
-     * @description Obtener el valor del dolar oficial
+     * @description Obtener el valor del euro del Banco Nación
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
-    getDolarOficial = async (req, res) => {
+    getEuroNacion = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: this.util.formatNumber(data.cotiza.Dolar.casa344.compra._text),
-                venta: this.util.formatNumber(data.cotiza.Dolar.casa344.venta._text)
+                compra: this.util.formatNumber(data.cotiza.Euro.casa176.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa176.venta._text)
             }
             res.send(valores)
         } catch (e) {
@@ -23,114 +23,109 @@ class dolarController {
         }
     }
 
-
     /**
-     * @description Obtener el valor del dolar blue
+     * @description Obtener el valor del euro del Banco Galicia
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
-    getDolarBlue = async (req, res) => {
+    getEuroGalicia = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: this.util.formatNumber(data.cotiza.Dolar.casa380.compra._text),
-                venta: this.util.formatNumber(data.cotiza.Dolar.casa380.venta._text)
+                compra: this.util.formatNumber(data.cotiza.Euro.casa356.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa356.venta._text)
             }
-
             res.send(valores)
         } catch (e) {
-            res.sendStatus(500)
             console.log(e)
+            res.sendStatus(500)
         }
     }
 
-
     /**
-     * @description Obtener el valor del dolar contado con liqui
+     * @description Obtener el valor del euro del Banco BBVA
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
-    getContadoConLiqui = async (req, res) => {
+    getEuroBBVA = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: this.util.formatNumber(data.cotiza.valores_principales.casa312.compra._text),
-                venta: this.util.formatNumber(data.cotiza.valores_principales.casa312.venta._text)
+                compra: this.util.formatNumber(data.cotiza.Euro.casa358.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa358.venta._text)
             }
-
             res.send(valores)
         } catch (e) {
-            res.sendStatus(500)
             console.log(e)
+            res.sendStatus(500)
         }
     }
 
-
     /**
-     * @description Obtener el valor del dolar promedio
+     * @description Obtener el valor del euro del Banco de la Pampa
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
-    getDolarPromedio = async (req, res) => {
+    getEuroPampa = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: this.util.formatNumber(data.cotiza.cotizador.casa302.compra._text),
-                venta: this.util.formatNumber(data.cotiza.cotizador.casa302.venta._text)
+                compra: this.util.formatNumber(data.cotiza.Euro.casa359.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa359.venta._text)
             }
-
             res.send(valores)
         } catch (e) {
-            res.sendStatus(500)
             console.log(e)
+            res.sendStatus(500)
         }
     }
 
-
     /**
-     * @description Obtener el valor del dolar bolsa
+     * @description Obtener el valor del euro del Nuevo Banco del Chaco
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
-    getDolarBolsa = async (req, res) => {
+    getEuroChaco = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
             const valores = {
                 fecha: this.util.getDateTime(),
-                compra: this.util.formatNumber(data.cotiza.valores_principales.casa313.compra._text),
-                venta: this.util.formatNumber(data.cotiza.valores_principales.casa313.venta._text)
+                compra: this.util.formatNumber(data.cotiza.Euro.casa360.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa360.venta._text)
             }
-
             res.send(valores)
         } catch (e) {
-            res.sendStatus(500)
             console.log(e)
+            res.sendStatus(500)
         }
     }
 
     /**
-     * @description Obtiene la evolución anual del valor del dolar oficial
+     * @description Obtener el valor del euro del Banco Hipotecario
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+    getEuroHipotecario = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha: this.util.getDateTime(),
+                compra: this.util.formatNumber(data.cotiza.Euro.casa361.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Euro.casa361.venta._text)
+            }
+            res.send(valores)
+        } catch (e) {
+            console.log(e)
+            res.sendStatus(500)
+        }
+    }
+
+    /**
+     * @description Obtiene la evolución anual del valor del euro
      * @returns Un objeto con el valor promedio por mes, el mes y el año.
      */
-    getEvolucionDolarOficial = async (req, res) => {
+    getEvolucionEuro = async (req, res) => {
         try {
             const data = await this.dolarSiService.getInfoDolar()
-            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.oficial.anio)
-
-            res.send(valores)
-        } catch (e) {
-            res.sendStatus(500)
-            console.log(e)
-        }
-    }
-
-    /**
-     * @description Obtiene la evolución anual del valor del dolar blue
-     * @returns Un objeto con el valor promedio por mes, el mes y el año.
-     */
-    getEvolucionDolarBlue = async (req, res) => {
-        try {
-            const data = await this.dolarSiService.getInfoDolar()
-            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.blue.anio)
+            const valores = this.util.getEvolucion(data.cotiza.evolucion_dolar.euro.anio)
 
             res.send(valores)
         } catch (e) {
@@ -140,4 +135,4 @@ class dolarController {
     }
 }
 
-module.exports = dolarController
+module.exports = euroController

@@ -1,4 +1,5 @@
 const express = require('express')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const router = require('./routes/router')
 const PORT = process.env.PORT || 7070
@@ -16,6 +17,7 @@ app.get('/', async (req, res) => {
 // Settings
 app.set('port', PORT);
 
+app.use(helmet())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', router)
