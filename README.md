@@ -14,20 +14,31 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/dolarpromedio | Cotizacion dólar promedio |
 | GET | /api/dolarbolsa | Cotizacion dólar bolsa |
 | GET | /api/riesgopais | Valor riesgo pais |
-| GET | /api/bbva | Cotizacion del Banco BBVA |
-| GET | /api/piano | Cotizacion del Banco Piano |
-| GET | /api/hipotecario | Cotizacion del Banco Hipotecario |
-| GET | /api/galicia | Cotizacion del Banco Galicia |
-| GET | /api/santander | Cotizacion del Banco Santander |
-| GET | /api/ciudad | Cotizacion del Banco Ciudad |
-| GET | /api/supervielle | Cotizacion del Banco Supervielle |
-| GET | /api/patagonia | Cotizacion del Banco Patagonia |
-| GET | /api/comafi | Cotizacion del Banco Comafi |
-| GET | /api/nacion | Cotizacion del Banco Nación |
-| GET | /api/bind | Cotizacion del Banco Industrial |
-| GET | /api/bancor | Cotizacion del Banco de Córdoba |
-| GET | /api/chaco | Cotizacion del Nuevo Banco del Chaco |
-| GET | /api/pampa | Cotizacion del Banco de La Pampa |
+| GET | /api/bbva | Cotizacion dolar del Banco BBVA |
+| GET | /api/piano | Cotizacion dolar del Banco Piano |
+| GET | /api/hipotecario | Cotizacion dolar del Banco Hipotecario |
+| GET | /api/galicia | Cotizacion dolar del Banco Galicia |
+| GET | /api/santander | Cotizacion dolar del Banco Santander |
+| GET | /api/ciudad | Cotizacion dolar del Banco Ciudad |
+| GET | /api/supervielle | Cotizacion dolar del Banco Supervielle |
+| GET | /api/patagonia | Cotizacion dolar del Banco Patagonia |
+| GET | /api/comafi | Cotizacion dolar del Banco Comafi |
+| GET | /api/nacion | Cotizacion dolar del Banco Nación |
+| GET | /api/bind | Cotizacion dolar del Banco Industrial |
+| GET | /api/bancor | Cotizacion dolar del Banco de Córdoba |
+| GET | /api/chaco | Cotizacion dolar del Nuevo Banco del Chaco |
+| GET | /api/pampa | Cotizacion dolar del Banco de La Pampa |
+| GET | /api/casas/caba/metropolis | Cotizacion dolar de Metrópolis Compañía Financiera S.A |
+| GET | /api/casas/caba/alpe | Cotizacion dolar de Cambio Alpe S.A |
+| GET | /api/casas/caba/vaccaro | Cotizacion dolar de Francisco Vaccaro S.A |
+| GET | /api/casas/caba/transatlantica | Cotizacion dolar de Transatlantica S.A |
+| GET | /api/casas/lp/tilos | Cotizacion dolar de Casa de Cambio Los Tilos S.A |
+| GET | /api/casas/mdp/jonestur | Cotizacion dolar de Jonestur S.A |
+| GET | /api/casas/mdp/moneta | Cotizacion dolar de La Moneta Cambio S.A|
+| GET | /api/casas/mdp/exchange | Cotizacion dolar de Mar del Plata Exchange S.A |
+| GET | /api/casas/rosario/daminato | Cotizacion dolar de Daminato Viajes y Cambios S.A. |
+| GET | /api/casas/mendoza/montemar | Cotizacion dolar de Montemar Compañía Financiera S.A |
+| GET | /api/casas/tucuman/maguitur | Cotizacion dolar de Maguitur S.A |
 | GET | /api/euro/nacion | Cotizacion del Euro del Banco Nación |
 | GET | /api/euro/galicia | Cotizacion del Euro del Banco Galicia |
 | GET | /api/euro/bbva | Cotizacion del Euro del Banco BBVA |
