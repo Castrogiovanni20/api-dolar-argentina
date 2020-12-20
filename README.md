@@ -1,6 +1,6 @@
 # API Dolar Argentina
 
-Obtene las diferentes cotizaciones del dólar y del riesgo pais.
+Obtene las diferentes cotizaciones del dólar, euro, reservas, evolucion y riesgo pais.
 
 ## Endpoints
 

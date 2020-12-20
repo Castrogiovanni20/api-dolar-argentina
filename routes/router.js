@@ -25,6 +25,9 @@ const realInstance = new realController(dolarSiServiceInstance, utilInstance)
 const bcraController = require('../controller/bcraController')
 const bcraInstance = new bcraController(dolarSiServiceInstance, utilInstance)
 
+const casasController = require('../controller/casasController')
+const casasInstance = new casasController(dolarSiServiceInstance, utilInstance)
+
 /**
  * @description Rutas dolar
  */
@@ -88,5 +91,19 @@ router.get('/api/evolucion/dolarblue', dolarInstance.getEvolucionDolarBlue)
 router.get('/api/evolucion/realoficial', realInstance.getEvolucionReal)
 router.get('/api/evolucion/eurooficial', euroInstance.getEvolucionEuro)
 
+/**
+ * @description Rutar casas de cambio
+ */
+router.get('/api/casas/caba/metropolis', casasInstance.getDolarMetro)
+router.get('/api/casas/caba/alpe', casasInstance.getDolarAlpe)
+router.get('/api/casas/caba/vaccaro', casasInstance.getDolarVaccaro)
+router.get('/api/casas/caba/transatlantica', casasInstance.getDolarTransatlantica)
+router.get('/api/casas/lp/tilos', casasInstance.getDolarLosTilos)
+router.get('/api/casas/mdp/jonestur', casasInstance.getDolarJonestur)
+router.get('/api/casas/mdp/moneta', casasInstance.getDolarMoneta)
+router.get('/api/casas/mdp/exchange', casasInstance.getDolarExchange)
+router.get('/api/casas/rosario/daminato', casasInstance.getDolarDaminato)
+router.get('/api/casas/mendoza/montemar', casasInstance.getDolarMontemar)
+router.get('/api/casas/tucuman/maguitur', casasInstance.getDolarMaguitur)
 
 module.exports = router

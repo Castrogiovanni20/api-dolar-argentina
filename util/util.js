@@ -29,7 +29,7 @@ class util {
     formatNumber = function (value, decimalPlaces) {
         let decimals = decimalPlaces || 2;
         let convertedValue = parseFloat(value.replace('.', '').replace(',', '.'))
-        return !isNaN(convertedValue) ? convertedValue.toFixed(decimals) : '?'
+        return !isNaN(convertedValue) ? convertedValue.toFixed(decimals) : 'No cotiza'
     }
 
     /**
