@@ -55,6 +55,7 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/evolucion/dolarblue | Evolución mensual anualizada del dólar blue |
 | GET | /api/evolucion/realoficial | Evolución mensual anualizada del Real oficial |
 | GET | /api/evolucion/eurooficial | Evolución mensual anualizada del Euro oficial |
+| GET | /api/all | Todos los valores disponbiles
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/409e96f2e356a5a1c14e)
 

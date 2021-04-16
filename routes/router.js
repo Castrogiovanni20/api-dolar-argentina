@@ -31,6 +31,7 @@ const casasInstance = new casasController(dolarSiServiceInstance, utilInstance)
 /**
  * @description Rutas dolar
  */
+router.get('/api/all', dolarInstance.getAllValues)
 router.get('/api/dolaroficial', dolarInstance.getDolarOficial)
 router.get('/api/dolarblue', dolarInstance.getDolarBlue)
 router.get('/api/contadoliqui', dolarInstance.getContadoConLiqui)

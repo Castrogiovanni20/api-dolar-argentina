@@ -5,6 +5,22 @@ class dolarController {
     }
 
     /**
+     * @description Obtener todos los valores
+     * @returns Todos los valores
+     */
+     getAllValues = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()            
+            const valores = { valores : data.cotiza }
+            res.send(valores)
+
+        } catch (e) {
+            console.log(e)
+            res.sendStatus(500)
+        }
+    }
+
+    /**
      * @description Obtener el valor del dolar oficial
      * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
      */
