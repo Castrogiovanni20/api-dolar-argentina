@@ -54,6 +54,7 @@ router.get('/api/bind', bancoInstance.getDolarBIND)
 router.get('/api/chaco', bancoInstance.getDolarChaco)
 router.get('/api/pampa', bancoInstance.getDolarPampa)
 router.get('/api/bancor', bancoInstance.getDolarBancor)
+router.get('/api/mayorista', bancoInstance.getDolarMayorista)
 
 /**
  * @description Ruta riesgo pais

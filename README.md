@@ -28,6 +28,7 @@ URL: https://api-dolar-argentina.herokuapp.com/
 | GET | /api/bancor | Cotizacion dolar del Banco de Córdoba |
 | GET | /api/chaco | Cotizacion dolar del Nuevo Banco del Chaco |
 | GET | /api/pampa | Cotizacion dolar del Banco de La Pampa |
+| GET | /api/mayorista | Cotizacion dolar Mayorista Bancos|
 | GET | /api/casas/caba/metropolis | Cotizacion dolar de Metrópolis Compañía Financiera S.A |
 | GET | /api/casas/caba/alpe | Cotizacion dolar de Cambio Alpe S.A |
 | GET | /api/casas/caba/vaccaro | Cotizacion dolar de Francisco Vaccaro S.A |

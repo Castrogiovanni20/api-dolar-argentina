@@ -278,6 +278,25 @@ class bancosController {
             console.log(e)
         }
     }
+
+    /**
+     * @description Obtener las cotizaciones de Mayorista Bancos
+     * @returns Un objeto con el valor de compra, el de venta y la fecha y hora de la consulta
+     */
+     getDolarMayorista = async (req, res) => {
+        try {
+            const data = await this.dolarSiService.getInfoDolar()
+            const valores = {
+                fecha: this.util.getDateTime(),
+                compra: this.util.formatNumber(data.cotiza.Dolar.casa44.compra._text),
+                venta: this.util.formatNumber(data.cotiza.Dolar.casa44.venta._text)
+            }
+            res.send(valores)
+        } catch (e) {
+            res.sendStatus(500)
+            console.log(e)
+        }
+    }
 }
 
 module.exports = bancosController
