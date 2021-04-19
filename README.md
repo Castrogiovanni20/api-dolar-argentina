@@ -4,7 +4,10 @@ Obtene las diferentes cotizaciones del dólar, euro, reservas, evolucion y riesg
 
 ## Endpoints
 
-URL: https://api-dolar-argentina.herokuapp.com/
+**IMPORTANTE:** Debido a problemas con Heroku, el anterior dominio (api-dolar-argentina) fue dado de baja, 
+por lo que se actualizo el mismo a "api-dolar-argentina-2".
+
+URL: https://api-dolar-argentina-2.herokuapp.com/
 
 | Metodo | Endpoint | Descripcion |
 | ------ | ------ | ------ |
