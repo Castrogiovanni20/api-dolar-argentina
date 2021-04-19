@@ -154,6 +154,31 @@ class dolarController {
             console.log(e)
         }
     }
+
+    /**
+     * @description Obtiene el valor para la venta del dolar turista
+     * @returns Un objeto con el valor de venta y la fecha y hora de la consulta.
+    */
+    getDolarTurista = async (req, res) => {
+        try {
+          const data = await this.dolarSiService.getInfoDolar();
+
+          const valores = {
+            fecha: this.util.getDateTime(),
+            compra: this.util.formatNumber(
+              data.cotiza.valores_principales.casa406.compra._text
+            ),
+            venta: this.util.formatNumber(
+              data.cotiza.valores_principales.casa406.venta._text
+            ),
+          };
+            
+          res.send(valores);
+        } catch (e) {
+          res.sendStatus(500);
+          console.log(e);
+        }
+    }
 }
 
 module.exports = dolarController
