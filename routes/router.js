@@ -37,6 +37,7 @@ router.get('/api/dolarblue', dolarInstance.getDolarBlue)
 router.get('/api/contadoliqui', dolarInstance.getContadoConLiqui)
 router.get('/api/dolarpromedio', dolarInstance.getDolarPromedio)
 router.get('/api/dolarbolsa', dolarInstance.getDolarBolsa)
+router.get("/api/dolarturista", dolarInstance.getDolarTurista);
 
 /**
  * @description Rutas bancos
