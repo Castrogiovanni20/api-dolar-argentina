@@ -5,8 +5,6 @@ Obtene las diferentes cotizaciones del dólar, euro, reservas, evolucion y riesg
 ## Endpoints
 URL: https://api-dolar-argentina.herokuapp.com/
 
-URL backup: https://api-dolar-argentina-2.herokuapp.com/
-
 | Metodo | Endpoint | Descripcion |
 | ------ | ------ | ------ |
 | GET | /api/dolaroficial | Cotizacion dólar oficial |
